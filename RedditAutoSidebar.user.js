@@ -12,7 +12,7 @@
     'use strict';
     var sidebar = document.querySelector("body > div.side");
     var rect = sidebar.getBoundingClientRect();
-    var activationSize = 100;
+    var activationSize = 150;
     var leeway = 40;
     var sidebarBottom = rect.bottom + document.body.scrollTop + leeway;
     var sidebarWidth = rect.width + leeway;
@@ -45,7 +45,7 @@
         }
     });
     document.addEventListener("mouseout", function(e) {
-        if (timer !== null) {
+        if (e.target === document.body && timer !== null) {
             clearTimeout(timer);
             timer = null;
         }
