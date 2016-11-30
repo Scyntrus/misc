@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Reddit No Affiliate
+// @name         Reddit No Link Tracking
 // @version      0.1
-// @description  Bypass Reddit affiliate links
+// @description  Bypass Reddit redirection
 // @author       Scyntrus
 // @match        https://reddit.com/*
 // @match        https://www.reddit.com/*
@@ -15,6 +15,8 @@
             return;
         if (t.hasAttribute("data-affiliate-url"))
             t.setAttribute("data-affiliate-url", t.getAttribute("data-href-url"));
+        if (t.hasAttribute("data-outbound-url"))
+            t.setAttribute("data-outbound-url", t.getAttribute("data-href-url"));
     }
     document.addEventListener('mousedown', c, true);
 })();
